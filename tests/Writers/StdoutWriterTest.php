@@ -13,8 +13,10 @@ class StdoutWriterTest extends PHPUnit_Framework_TestCase
      * @dataProvider dataProviderWrite
      * @param array $messages
      */
-    public function testWrite(...$messages)
+    public function testWrite($messages)
     {
+        $messages = func_get_args(); // TODO replace to valid code for PHP 5.4+
+
         $writer = new StdoutWriter();
 
         ob_start();
